@@ -32,6 +32,7 @@ RUN chmod +x /*.sh && \
 	echo "export LANGUAGE=zh_TW" >> /root/.profile && \
 	echo "export LC_ALL=zh_TW.UTF-8" >> /root/.profile && \
 	apt-get install -y build-essential && \
+	apt-get -y dist-upgrade && \
 	apt-get install -y byobu cron curl htop man unzip wget xrdp xfce4 && \
 	echo xfce4-session >~/.xsession && \
 	mkdir -p /etc/java && \ 
@@ -39,12 +40,9 @@ RUN chmod +x /*.sh && \
 	tar zxvf /etc/java/jdk-8u102-linux-x64.tar.gz && \
 	chown -R root:root /etc/java && \
 	export JAVA_HOME=/etc/java/jdk1.8.0_102 && \
-	export PATH=$PATH:$JAVA_HOME/bin 
-
-ENV LANG zh_TW.UTF-8  
-ENV LANGUAGE zh_TW
-ENV LC_ALL zh_TW.UTF-8 
-
+	export PATH=$PATH:$JAVA_HOME/bin && \
+	locale-gen en_US.UTF-8 && \
+	export LANG=en_US.UTF-8
 
 ENV AUTHORIZED_KEYS **None**
 
