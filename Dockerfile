@@ -2,9 +2,9 @@ FROM ubuntu:trusty
 MAINTAINER  ASCDC <asdc.sinica@gmail.com>
 
 ADD locale.gen /etc/locale.gen
-ADD locale-archive /usr/lib/locale/locale-archive	
+ADD locale-archive /usr/lib/locale/locale-archive
+ADD run.sh /run.sh	
 ADD set_root_pw.sh /set_root_pw.sh	
-ADD run.sh /run.sh
 
 RUN chmod +x /*.sh && \
 	apt-get update && \
