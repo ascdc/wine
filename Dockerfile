@@ -1,10 +1,11 @@
 FROM ubuntu:trusty
 MAINTAINER  ASCDC <asdc.sinica@gmail.com>
 
-ADD locale.gen /etc/locale.gen
-ADD locale-archive /usr/lib/locale/locale-archive
 ADD run.sh /run.sh	
 ADD set_root_pw.sh /set_root_pw.sh	
+ADD locale.gen /etc/locale.gen
+ADD locale-archive /usr/lib/locale/locale-archive
+
 
 RUN chmod +x /*.sh && \
 	apt-get update && \
@@ -48,6 +49,6 @@ ENV LC_ALL zh_TW.UTF-8
 ENV AUTHORIZED_KEYS **None**
 
 EXPOSE 22
-EXPOSE 5901
+EXPOSE 3389
 
 ENTRYPOINT ["/run.sh"]
