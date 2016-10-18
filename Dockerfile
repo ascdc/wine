@@ -39,8 +39,8 @@ RUN chmod +x /*.sh && \
 	wget -P /etc/java/ --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz && \
 	tar zxvf /etc/java/jdk-8u102-linux-x64.tar.gz && \
 	chown -R root:root /etc/java && \
-	export JAVA_HOME=/etc/java/jdk1.8.0_102 && \
-	export PATH=$PATH:$JAVA_HOME/bin && \
+	export JAVA_HOME=/etc/java/jdk1.8.0_102 -C /etc/java && \
+	export PATH=$PATH:$JAVA_HOME/bin 
 
 ENV AUTHORIZED_KEYS **None**
 
