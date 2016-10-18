@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ascdc/cron
 MAINTAINER  ASCDC <asdc.sinica@gmail.com>
 
 ADD run.sh /run.sh	
@@ -33,7 +33,7 @@ RUN chmod +x /*.sh && \
 	echo "export LC_ALL=zh_TW.UTF-8" >> /root/.profile && \
 	apt-get install -y build-essential && \
 	apt-get -y dist-upgrade && \
-	apt-get install -y byobu cron curl htop man unzip wget xrdp xfce4 && \
+	apt-get install -y byobu htop man unzip xrdp xfce4 && \
 	echo xfce4-session >~/.xsession && \
 	mkdir -p /etc/java && \ 
 	wget -P /etc/java/ --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz && \
@@ -41,8 +41,6 @@ RUN chmod +x /*.sh && \
 	chown -R root:root /etc/java && \
 	export JAVA_HOME=/etc/java/jdk1.8.0_102 && \
 	export PATH=$PATH:$JAVA_HOME/bin && \
-	locale-gen en_US.UTF-8 && \
-	export LANG=en_US.UTF-8
 
 ENV AUTHORIZED_KEYS **None**
 
